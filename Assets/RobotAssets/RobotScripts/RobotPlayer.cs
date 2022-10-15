@@ -5,9 +5,10 @@ using UnityEngine;
 public class RobotPlayer : MonoBehaviour
 {
     public CharacterController characterController;
+    public Animator anim;
+    public Vector3 Velocity;
     public float speed;
     public float gravity = -9.81f;
-    public Vector3 Velocity;
     public float jump;
 
     private void Update()
@@ -26,7 +27,15 @@ public class RobotPlayer : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
+            anim.SetBool("isJumping", true);
             Velocity.y = Mathf.Sqrt(jump * -2f * gravity);
+            StartCoroutine(coroutine());
+        }
+
+        IEnumerator coroutine()
+        {
+            yield return new WaitForSeconds(0.2f);
+            anim.SetBool("isJumping", false);
         }
 
         Velocity.y += gravity * Time.deltaTime;
