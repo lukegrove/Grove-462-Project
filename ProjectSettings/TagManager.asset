@@ -7,16 +7,18 @@ TagManager:
   - Obstacle
   - Ground
   - Environment
+  - Spider
+  - Victory
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Environment
+  - Victory
+  - Spider
   - 
   - 
   - 
