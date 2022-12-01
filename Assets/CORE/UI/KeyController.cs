@@ -5,20 +5,13 @@ using UnityEngine.UI;
 
 public class KeyController : MonoBehaviour
 {
-    private bool canWin = false;
-    private bool key1 = false;
-    private bool key2 = false;
-    private bool key3 = false;
-    private bool key4 = false;
-    private int keyCounter = 0;
-
-    public Image keyImage1 = null;
-    public Image keyImage2 = null;
-    public Image keyImage3 = null;
-    public Image keyImage4 = null;
+    public bool canWin;
 
     public AudioClip keyAudio = null;
     private AudioSource keyAudioSource;
+
+    public GameObject progressDoor;
+    public GameObject victorySpaceship;
 
     public GameObject winUI;
     
@@ -26,10 +19,23 @@ public class KeyController : MonoBehaviour
     {
         winUI.SetActive(false);
         keyAudioSource = GetComponent<AudioSource>();
+        canWin = false;
     }
 
     private void Update()
     {
-        //
+        if (canWin == true)
+        {
+            progressDoor.SetActive(false);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Victory" & canWin == true)
+        {
+            gameObject.SetActive(false);
+            winUI.SetActive(true);
+        }
     }
 }

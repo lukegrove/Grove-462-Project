@@ -9,6 +9,7 @@ TagManager:
   - Environment
   - Spider
   - Victory
+  - Key
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - Environment
   - Victory
   - Spider
-  - 
-  - 
+  - Key
+  - Pickup
   - 
   - 
   - 

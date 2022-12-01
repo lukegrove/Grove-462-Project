@@ -57,6 +57,7 @@ public class HealthController : MonoBehaviour
         if (currentPlayerHealth == 0)
         {
             failedUI.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 
