@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
+    public AudioSource audioSource;
+
     private void OnTriggerEnter(Collider other)
     {
         PlayerInventory playerInventory = other.GetComponent<PlayerInventory>();
@@ -12,6 +14,7 @@ public class Key : MonoBehaviour
         if (playerInventory != null)
         {
             playerInventory.KeyCollected();
+            audioSource.Play();
             gameObject.SetActive(false);
         }
 

@@ -7,8 +7,7 @@ public class KeyController : MonoBehaviour
 {
     public bool canWin;
 
-    public AudioClip keyAudio = null;
-    private AudioSource keyAudioSource;
+    public AudioSource audioSource;
 
     public GameObject progressDoor;
     public GameObject victorySpaceship;
@@ -18,7 +17,6 @@ public class KeyController : MonoBehaviour
     private void Start()
     {
         winUI.SetActive(false);
-        keyAudioSource = GetComponent<AudioSource>();
         canWin = false;
     }
 
@@ -35,6 +33,7 @@ public class KeyController : MonoBehaviour
         if (other.gameObject.tag == "Victory" & canWin == true)
         {
             gameObject.SetActive(false);
+            audioSource.Play();
             winUI.SetActive(true);
         }
     }

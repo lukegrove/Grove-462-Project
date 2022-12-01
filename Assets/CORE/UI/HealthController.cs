@@ -20,6 +20,7 @@ public class HealthController : MonoBehaviour
 
     public AudioClip hurtAudio = null;
     private AudioSource healthAudioSource;
+    public AudioSource deathAudioSource;
 
     public GameObject failedUI;
     
@@ -56,8 +57,9 @@ public class HealthController : MonoBehaviour
         }
         if (currentPlayerHealth == 0)
         {
-            failedUI.SetActive(true);
             gameObject.SetActive(false);
+            deathAudioSource.Play();
+            failedUI.SetActive(true);
         }
     }
 
