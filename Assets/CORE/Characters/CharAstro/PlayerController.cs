@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
         cameraTransform = Camera.main.transform;
         moveAction = playerInput.actions["Move"];
         jumpAction = playerInput.actions["Jump"];
+        anim.SetBool("isWalking", true);
     }
 
     void Update()
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
         move = move.x * cameraTransform.right.normalized + move.z * cameraTransform.forward.normalized;
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
+        anim.SetBool("isWalking", true);
 
         if (jumpAction.triggered)
         {

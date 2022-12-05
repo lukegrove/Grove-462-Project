@@ -23,6 +23,7 @@ public class HealthController : MonoBehaviour
     public AudioSource deathAudioSource;
 
     public GameObject failedUI;
+    public GameObject healthCanvas;
     
     private void Start()
     {
@@ -58,6 +59,7 @@ public class HealthController : MonoBehaviour
         if (currentPlayerHealth == 0)
         {
             gameObject.SetActive(false);
+            Destroy(healthCanvas);
             deathAudioSource.Play();
             failedUI.SetActive(true);
         }
