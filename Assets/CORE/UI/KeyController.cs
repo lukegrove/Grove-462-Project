@@ -11,8 +11,8 @@ public class KeyController : MonoBehaviour
 
     public GameObject progressDoor;
     public GameObject victorySpaceship;
-
     public GameObject winUI;
+    public GameObject healthCanvas;
     
     private void Start()
     {
@@ -32,6 +32,7 @@ public class KeyController : MonoBehaviour
     {
         if (other.gameObject.tag == "Victory" & canWin == true)
         {
+            Destroy(healthCanvas);
             gameObject.SetActive(false);
             audioSource.Play();
             winUI.SetActive(true);

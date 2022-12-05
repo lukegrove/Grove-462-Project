@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
@@ -22,8 +23,15 @@ public class PlayerController : MonoBehaviour
     public float gravityValue = -9.81f;
     public float rotationSpeed = 5f;
 
+    public int check = 0;
+    public string mainMenu;
+
     private void Start()
     {
+        // if (check == 0)
+        // {
+        //     SceneManager.LoadScene(mainMenu);
+        // }
         controller = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
         cameraTransform = Camera.main.transform;
